@@ -1,0 +1,5 @@
+build/
+dist/
+quick_logger/__pycache__
+quick_logger.egg-info/
+setup.py
