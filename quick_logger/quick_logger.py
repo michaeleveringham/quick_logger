@@ -1,16 +1,20 @@
 import logging
 
 
-def init_logger(file_path: str,
-                level: str = 'info',
-                fmt: str = '',
-                datefmt: str = '') -> None:
-    levels = {'critical': logging.CRITICAL,
-              'error': logging.ERROR,
-              'warning': logging.WARNING,
-              'info': logging.INFO,
-              'debug': logging.DEBUG,
-              'notset': logging.NOTSET}
+def init_logger(
+    file_path: str,
+    level: str = 'info',
+    fmt: str = '',
+    datefmt: str = ''
+) -> None:
+    levels = {
+        'critical': logging.CRITICAL,
+        'error': logging.ERROR,
+        'warning': logging.WARNING,
+        'info': logging.INFO,
+        'debug': logging.DEBUG,
+        'notset': logging.NOTSET
+    }
     try:
         level = levels[level]
     except KeyError:
@@ -32,11 +36,13 @@ def init_logger(file_path: str,
 def mlog(message: str, level: str = 'info') -> None:
     logger = logging.getLogger(__name__)
     message = str(message)
-    levels = {'critical': logger.critical,
-              'error': logger.error,
-              'warning': logger.warning,
-              'info': logger.info,
-              'debug': logger.debug}
+    levels = {
+        'critical': logger.critical,
+        'error': logger.error,
+        'warning': logger.warning,
+        'info': logger.info,
+        'debug': logger.debug
+    }
     try:
         levels[level](message)
     except (KeyError, ValueError):
