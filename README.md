@@ -8,7 +8,22 @@ A simple interface for the standard Python logging library.
 
 This is a very simple package designed to setup a logger in one line and allow logging to it with ease.
 
-This package is ***very*** simple, if you're looking for advanced logging, just use the base Python logging library. 
+### Note
+
+I wrote this package when I was still in school. It's really no easier than just using `logger.<level>`.
+
+However, the `init_logger` method may still be of some use...
+So, I've updated it such that `mlog` can now  be dispatched with level:
+```
+from quick_logger import mlog
+# Previously any level beyond info:
+mlog("Here's a debug message.", "debug")
+# Now, can use the same idiom as `logger.<level>`:
+mlog.debug("Here's a debug message.")
+```
+Note that the original syntax is still backward-compatible, on the offchace anything out there uses this.
+
+Ultimately, this package is ***very*** simple, you probably just want to use the base Python logging library.
 
 ## Installation
 
@@ -37,9 +52,9 @@ By default, the log file will be set to `logging.INFO`.
 
 ``` python
 # By default logs are set to "info"
-mlog('Logged something!')
-# Pass a value to do a different level
-mlog('Something went wrong!', 'error')
+mlog("Logged something!")
+# Invoke by level
+mlog.error("Something went wrong!")
 ```
 It's that easy!
 

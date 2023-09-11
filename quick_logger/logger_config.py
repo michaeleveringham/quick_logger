@@ -38,19 +38,3 @@ def init_logger(
     for handler in handlers:
         handler.setFormatter(formatter)
         logger.addHandler(handler)
-
-def mlog(message: str, level: str = 'info') -> None:
-    logger = logging.getLogger(__name__)
-    message = str(message)
-    levels = {
-        'critical': logger.critical,
-        'error': logger.error,
-        'warning': logger.warning,
-        'info': logger.info,
-        'debug': logger.debug
-    }
-    try:
-        levels[level](message)
-    except (KeyError, ValueError):
-        print(f'Invalid level selection of {level}, using "info".')
-        levels['info'](message)
